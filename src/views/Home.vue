@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<HomePage title="Puji Ermanto HomePage"/>
+		<HomePage title="Second Landing ... "/>
 
 	</div>
 </template>

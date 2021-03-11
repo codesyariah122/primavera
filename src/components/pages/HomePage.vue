@@ -1,10 +1,10 @@
 <template>
 	<div>
-		<HeroContent title="HomePage"/>
+		<!-- <HeroContent title="Second Landing ..."/> -->
 		
 		<div class="container">
 
-			<ProjectLists title="Project List Here" content="Andai hujanmu berhenti.\n Terbata mengeja puisi. Ada yang hening membeku. \n Roboh di altar sang waktu. \n Hujan ini sebut kamu. \n Pergi di ujung rindu. \n Lara percikan sendu. \n Datangi sela-sela ragu"/>
+			<ProjectLists title="Project List Here"/>
 
 		</div>
 
@@ -14,7 +14,7 @@
 <script>
 	import axios from 'axios'
 	import ProjectLists from '../molecules/ProjectLists.vue'
-	import HeroContent from '../molecules/HeroContent'
+	// import HeroContent from '../molecules/HeroContent'
 
 	export default {
 		name: 'HomePage',
