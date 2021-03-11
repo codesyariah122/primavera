@@ -6,10 +6,10 @@
 	import HeroContent from '../molecules/HeroContent'
 	export default {
 		name: 'About',
-		props: ['title']
+		props: ['title'],
 		components:{
 			HeroContent
-		}
+		},
 	}
 </script>
 
