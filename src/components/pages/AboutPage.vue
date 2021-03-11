@@ -1,10 +1,15 @@
 <template>
-	<h1>About Page</h1>
+	<HeroContent title="AboutPage"/>
 </template>
 
 <script>
+	import HeroContent from '../molecules/HeroContent'
 	export default {
-		name: 'About'
+		name: 'About',
+		props: ['title']
+		components:{
+			HeroContent
+		}
 	}
 </script>
 
