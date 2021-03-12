@@ -52,7 +52,7 @@
   body {
     margin: 0;
     padding: 0;
-    background-color: rgba(0,0,0,0.7)!important;
+    background-color: rgba(0,0,0,0.5)!important;
     width: 100vw;
     overflow-x: hidden;
   }
@@ -68,7 +68,14 @@
   #navigation-icon > i {
     cursor: pointer;
     font-size: 2rem;
-    padding: 4px;
+    padding: 17px;
+    color: grey;
+    position: fixed;
+    top: 8.5%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index:1;
   }
 
   .content {
@@ -76,7 +83,7 @@
     top: 0;
     width: 100vw;
     min-height: 100vh;
-    padding: 16px;
+    padding: .3px;
     background-color: #fff;
     transition: .3s all ease-in-out;
   }

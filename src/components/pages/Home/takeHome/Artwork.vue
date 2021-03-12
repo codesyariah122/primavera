@@ -190,10 +190,10 @@
 	        } 
 	    }
 }
-	.image-wrapper{
-		width: 50%;
-		margin-top:-7rem;
-		text-align: right;
-		margin-right: -2.7rem;
-	}
+.image-wrapper{
+	width: 50%;
+	margin-top:-5rem;
+	text-align: right;
+	margin-right: -1.7rem;
+}
 </style>
