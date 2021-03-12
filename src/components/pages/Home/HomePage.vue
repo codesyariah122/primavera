@@ -131,7 +131,8 @@
 	@media (max-width: 368px){
 		.text-wrapper{
 			width: 50%;
-			margin-left: 1rem;
+			margin-left: 5rem;
+			margin-top:5rem;
 			
 			.description {
 				font-size: 14px;
