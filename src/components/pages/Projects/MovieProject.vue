@@ -53,6 +53,7 @@
 
 
 <script>
+	import axios from 'axios'
 	import Loader from './Loader.vue'
 	import CardDetails from './CardDetails.vue'
 
@@ -76,30 +77,27 @@
 		methods: {
 			getMovie(event){
 				this.keyword = event.target.value
-				fetch(`http://omdbapi.com/?apiKey=43c80ec7&s=${this.keyword}`)
+				axios.get(`http://omdbapi.com/?apiKey=43c80ec7&s=${this.keyword}`)
 				.finally(() => {
 					setTimeout(() => {
 						this.loading=true
 					}, 500)
 				})
-				.then(res => res.json())
 				.then(data => {
 					setTimeout(() => {
-						// console.log(data.Search.length)
-						this.lists = data.Search
+						this.lists = data.data.Search
+						// console.log(this.lists)
 						this.loading=false
 					}, 3500)
-					// console.log(this.lists)
 				})
 				.catch(err => console.log(err))
 			},
 
 			getDetail(id){
-				fetch(`http://www.omdbapi.com/?apiKey=43c80ec7&i=${id}`)
-				.then(res => res.json())
+				axios.get(`http://www.omdbapi.com/?apiKey=43c80ec7&i=${id}`)
 				.then(i => {
-					// console.log(i)
-					this.details = i
+					console.log(i)
+					this.details = i.data
 				})
 				.catch(err => console.error(err))
 			}

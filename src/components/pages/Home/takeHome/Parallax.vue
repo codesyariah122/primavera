@@ -8,7 +8,7 @@
         <div class="caption">
           <br/><br/>
           <h2 >{{dev}} @ {{year}}</h2>
-          <h4 class="mb-5" style="font-family:Reey Regular;">Bijaklah dalam menyebarkan informasi digital</h4>
+          <h4 class="mb-5">Bijaklah dalam menyebarkan informasi digital</h4>
           <br/>
           Contact:       
           <a :href="`https://wa.me/${contact.phone}?text=${contact.text}`" class="btn btn-primary text-white mb-3" target="_blank">
@@ -37,19 +37,6 @@
 </script>
 
 <style lang="scss" scoped>
-@font-face {
-  font-family: 'SpringSakura';
-  src: local('SpringSakura'), url('{{site.url}}/assets/fonts/SpringSakura-3z1m8.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Reey Regular';
-  src: local('Reey Regular'), url('{{site.url}}/assets/fonts/Reey-Regular.woff') format('woff');
-}
-@font-face {
-  font-family:"AlQalam";
-  src: url('{{site.url}}/assets/fonts/quran/noorehidayat.ttf')format('opentype');
-}
 .underline:after {
   content: "";
   display: block;
