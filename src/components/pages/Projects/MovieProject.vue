@@ -77,7 +77,7 @@
 		methods: {
 			getMovie(event){
 				this.keyword = event.target.value
-				axios.get(`http://omdbapi.com/?apiKey=43c80ec7&s=${this.keyword}`)
+				axios.get(`http://omdbapi.com/?apiKey=fb7e43c&s=${this.keyword}`)
 				.finally(() => {
 					setTimeout(() => {
 						this.loading=true
@@ -94,7 +94,7 @@
 			},
 
 			getDetail(id){
-				axios.get(`http://www.omdbapi.com/?apiKey=43c80ec7&i=${id}`)
+				axios.get(`http://www.omdbapi.com/?apiKey=fb7e43c&i=${id}`)
 				.then(i => {
 					console.log(i)
 					this.details = i.data

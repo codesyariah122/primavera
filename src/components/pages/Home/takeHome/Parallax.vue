@@ -6,12 +6,12 @@
     <div class="parallax">
       <div class="col-md-4">
         <div class="caption">
-          <br/><br/>
+          <br/>
           <h2 >{{dev}} @ {{year}}</h2>
           <h4 class="mb-5">Bijaklah dalam menyebarkan informasi digital</h4>
           <br/>
           Contact:       
-          <a :href="`https://wa.me/${contact.phone}?text=${contact.text}`" class="btn btn-primary text-white mb-3" target="_blank">
+          <a :href="`https://wa.me/${contact.phone}?text=${contact.text}`" class="btn btn-primary text-white mb-1" target="_blank">
             Whatsapp
           </a>
         </div>  
@@ -136,9 +136,8 @@
   background:rgba(255,255,255,0.4);
   /* clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); */
   position: absolute;
-  left: 25rem;
-  margin-top: 7rem;
-  width: 100%;
+  margin-top: 2.5rem;
+  width: 65%;
   text-align: center;
   color: #000;
 }
