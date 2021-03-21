@@ -1,21 +1,21 @@
 <template>
   <div>
-    
+
     <h1 class="underline mb-2 mt-2"></h1>
 
     <div class="parallax">
-        <div class="col-md-4">
-            <div class='box-wave'>
-              <div class='wave -one'></div>
-              <div class='wave -two'></div>
-              <div class='wave -three'></div>
-              <div class='title-wave'>
-                <h4>
-                  Puji Ermanto @ {{date}}
-                </h4>
-              </div>
-            </div>
-        </div>
+      <div class="col-md-4">
+        <div class="caption">
+          <br/><br/>
+          <h2 >{{dev}} @ {{year}}</h2>
+          <h4 class="mb-5" style="font-family:Reey Regular;">Bijaklah dalam menyebarkan informasi digital</h4>
+          <br/>
+          Contact:       
+          <a :href="`https://wa.me/${contact.phone}?text=${contact.text}`" class="btn btn-primary text-white mb-3" target="_blank">
+            Whatsapp
+          </a>
+        </div>  
+      </div>
     </div>
   </div>
 </template>
@@ -24,7 +24,12 @@
   export default{
     data() {
       return {
-        date: new Date().getFullYear()
+        dev: 'Puji Ermanto',
+        year: new Date().getFullYear(),
+        contact: {
+          phone: '6288222668778',
+          text: 'Hai ... %20kak%20saya%20Ada%20Project%20untuk%20kaka'
+        }
       }
     }
 
@@ -32,6 +37,19 @@
 </script>
 
 <style lang="scss" scoped>
+@font-face {
+  font-family: 'SpringSakura';
+  src: local('SpringSakura'), url('{{site.url}}/assets/fonts/SpringSakura-3z1m8.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Reey Regular';
+  src: local('Reey Regular'), url('{{site.url}}/assets/fonts/Reey-Regular.woff') format('woff');
+}
+@font-face {
+  font-family:"AlQalam";
+  src: url('{{site.url}}/assets/fonts/quran/noorehidayat.ttf')format('opentype');
+}
 .underline:after {
   content: "";
   display: block;
@@ -43,32 +61,31 @@
   height: 2px;
   background: #ff634e;
 }
- .parallax{
-    background-image: url('~@/assets/Home/parallax2.jpg');
-    min-height: 500px; 
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin:0;
-  }
-    /* wave */
+.parallax{
+  background-image: url('~@/assets/Home/parallax2.jpg');
+  min-height: 500px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin:0;
+}
+/* wave */
 .box-wave {
-  width: 300px;
-  height: 300px;
-  border-radius: 2px;
+  width: 350px;
+  height: 500px;
+  border-radius: 5px;
   box-shadow: 0 2px 30px rgba(black, .2);
-  background: lighten(#f0f4c3, 15%);
+  background: lighten(#f0f4c3, 10%);
   position: relative;
   overflow: hidden;
   transform: translate3d(0, 0, 0);
-  opacity: 0.9;
 }
-    
+
 .wave {
   opacity: .4;
   position: absolute;
-  top: 10%;
+  top: 3%;
   left: 50%;
   background: #0af;
   width: 500px;
@@ -79,17 +96,17 @@
   border-radius: 43%;
   animation: drift 3000ms infinite linear;
 }
-    
+
 .wave.-three {
   animation: drift 5000ms infinite linear;
 }
-    
+
 .wave.-two {
   animation: drift 7000ms infinite linear;
   opacity: .1;
   background: yellow;
 }
-    
+
 .box-wave:after {
   content: '';
   display: block;
@@ -98,35 +115,56 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(to bottom, rgba(#e8a, 1), rgba(#def, 0) 80%, rgba(white, .5));
-  z-index: 11;
+  z-index: -1;
   transform: translate3d(0, 0, 0);
 }
-    
+
 .title-wave {
   position: absolute;
-  left: 0;
-  top: 55px;
+  left: 1rem;
+  top: 0;
   width: 100%;
   z-index: 1;
   line-height: 300px;
-  text-align: center;
+  text-align: left;
   transform: translate3d(0, 0, 0);
   color: white;
+  font-weight: bold;;
   text-transform: uppercase;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Poiret One', cursive;
   letter-spacing: .4em;
-  font-size: 24px;
+  font-size: 14px;
   text-shadow: 0 1px 0 rgba(black, .1);
-  text-indent: .3em;
-    }
-    .title-wave a{
-        margin-left: 2rem;
-    }
-  
-  @keyframes drift {
-    from { transform: rotate(0deg); }
-    from { transform: rotate(360deg); }
-  }
+}
+.titl-wave a{
+  margin-left: 2rem;
+}
+
+@keyframes drift {
+  from { transform: rotate(0deg); }
+  from { transform: rotate(360deg); }
+}
+
+.caption {
+  background:rgba(255,255,255,0.4);
+  /* clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); */
+  position: absolute;
+  left: 25rem;
+  margin-top: 7rem;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+.caption h2 {
+  color: white;
+  font-family: 'Poiret One', cursive;font-weight:bold;
+  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
+  margin-bottom: .9rem;
+}
+.caption a{
+  font-size: 18px;
+}
+
  @media only screen and (max-device-width: 812px) {
     .parallax {
         background-attachment: scroll;

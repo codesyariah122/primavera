@@ -19,7 +19,7 @@
 	<h1 class="underline mb-5 mt-5"></h1>
 
 	<section class="project">
-		<ProjectList title="Product List ... "/>
+		<ProjectList title="Product List"/>
     </section>
 
     <Parallax/>	

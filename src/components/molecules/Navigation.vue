@@ -3,6 +3,7 @@
     <ul>
       <li><router-link to="/">start</router-link></li>
       <li><router-link to="/about">about</router-link></li>
+      <li><router-link to="/project">project</router-link></li>
     </ul>
   </div>
 </template>
