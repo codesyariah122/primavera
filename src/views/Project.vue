@@ -1,20 +1,20 @@
 <template>
 	<div>
 		<slot/>
-		<MovieProject title="Cari Film Apa Gan ... "/>
+		<LookUp title="Cek Lokasi disini ... "/>
 	</div>
 </template>
 
 <script>
-	import MovieProject from '../components/pages/Projects/MovieProject'
+	import LookUp from '../components/pages/Projects/LookUp'
 	export default {
 		name: 'Project',
 		props: ['title'],
 		components: {
-			MovieProject
+			LookUp
 		},
 		metaInfo: {
-			title: 'MovieSearch | Primavera'
+			title: 'Project | Primavera'
 		}
 	}
 </script>
