@@ -11,7 +11,7 @@
 
 			<b-row>
 				<div v-if="loading" class="text-center">
-					<img :src="anim">
+					<img :src="anim" width="250" height="150" class="img-responsive">
 				</div>
 				<div v-for="product in products" :key="product.id" class="col-md-4 mb-5 mt-2">
 					<b-card>

@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<slot/>
-		<LookUp title="Cek Lokasi disini ... "/>
+		<LookUp title="Cek temperatur disini ... "/>
 	</div>
 </template>
 

@@ -5,18 +5,22 @@
 			<b-container>
 				<b-row class="justify-content-center">
 					<div class="col-12 mb-5">
-						<h5> {{title}} </h5>
+						<h5 v-if="show.button"> {{title}} </h5>
 
-						<img v-if="loading" :src="animate" :title="ip">
+						<img v-if="loading" :src="animate" :title="ip" width="250" height="150" class="img-responsive mt-3">
 						
-						<button v-else class="btn btn-primary" @click="getLocation(ip)">Check Location</button>
+						<button v-if="show.button" class="btn btn-primary" @click="getLocation(ip)">Check Temperature</button>
+
 					</div>
 				</b-row>
 
 				<b-row>
-					<div class="col-md-4">
-						<b-card v-if="result" class="mt-3">
-							<b-list-group flush style="font-size:12px;">
+					<div class="col-md-4 mt-5">
+						
+						<Weather  v-if="show.weather" :city="result.city"/>
+
+						<b-card v-if="show.card" class="mt-3 mb-5">
+							<b-list-group  flush style="font-size:12px;">
 								<b-list-group-item>
 									{{result.org}}
 								</b-list-group-item>
@@ -42,8 +46,8 @@
 						</b-card>
 					</div>
 
-					<div class="col-md-4 col-xs-4 col-sm-6">	
-						<div class="mt-3" v-if="map">
+					<div class="col-md-4 col-xs-4 col-sm-6 mt-5">	
+						<div v-if="map">
 	                        <div class="mapouter">
 	                            <div class="gmap_canvas">
 	                                <iframe width="600" height="300" id="gmap_canvas" :src="map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
@@ -52,7 +56,6 @@
 	                        </div>
                     	</div>
 					</div>
-
 				</b-row>
 			</b-container>
 		</div>
@@ -62,15 +65,24 @@
 
 <script>
 	import loading from './assets/loading.gif'
+	import Weather from './complement/Weather.vue'
 
 	export default {
 		props: {
 			title: String
 		},
+		components: {
+			Weather
+		},
 		data() {
 			return {
 				animate: loading,
 				loading: false,
+				show: {
+					button: true,
+					card: false,
+					weather: false
+				},
 				ip: '',
 				result: [],
 				map: ''
@@ -86,6 +98,7 @@
 				.finally(() => {
 					setTimeout(() => {
 						this.loading=true
+						this.show.button=false
 					}, 500)
 				})
 				.then(res => res.json())
@@ -93,7 +106,8 @@
 					setTimeout(() => {
 						this.ip=res.ip
 						this.loading=false
-					}, 7500)
+						this.show.button=true
+					}, 2500)
 				})
 				.catch(err => console.log(err))
 			},
@@ -103,14 +117,18 @@
 				.finally(() => {
 					setTimeout(() => {
 						this.loading=true
+						this.show.button=false
 					}, 500)
 				})
 				.then(res => res.json())
 				.then(res => {
-					console.log(res)
 					setTimeout(() => {
 						this.loading=false
+						this.show.button=false
+						this.show.card=true
+						this.show.weather=true
 						this.result=res
+						this.city=res.city
 						this.map=`https://maps.google.com/maps?q=${this.result.city}&t=&z=13&ie=UTF8&iwloc=&output=embed`
 					}, 2500)
 				})
