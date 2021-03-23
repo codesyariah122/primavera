@@ -46,17 +46,27 @@
 						</b-card>
 					</div>
 
-					<div class="col-md-4 col-xs-4 col-sm-6 mt-5">	
+					<div class="col-md-4 col-xs-4 col-sm-6 mt-5 mb-5">	
 						<div v-if="map">
 	                        <div class="mapouter">
 	                            <div class="gmap_canvas">
-	                                <iframe width="600" height="300" id="gmap_canvas" :src="map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-	                                </iframe>
+	                                <!-- <iframe width="600" height="300" id="gmap_canvas" :src="map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+	                                </iframe> -->
+	                                <iframe width="500" height="400" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=107.24544525146484%2C-7.040586689891008%2C107.62859344482422%2C-6.844623671722899&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a :href="map">View Larger Map</a></small>
 	                            </div>
 	                        </div>
+							
+							<!-- <Chart style="margin-left: 5rem; margin-top:-.1rem;" :code="result.country_code" :city="result.city" /> -->
+
                     	</div>
 					</div>
 				</b-row>
+<!-- 
+				<b-row>
+					<div class="col-12 col-xs-12 col-sm-12">
+					</div>
+				</b-row> -->
+
 			</b-container>
 		</div>
 
@@ -66,13 +76,16 @@
 <script>
 	import loading from './assets/loading.gif'
 	import Weather from './complement/Weather.vue'
+	import Chart from './complement/Chart.vue'
+	
 
 	export default {
 		props: {
 			title: String
 		},
 		components: {
-			Weather
+			Weather,
+			Chart
 		},
 		data() {
 			return {
@@ -92,6 +105,7 @@
 		created(){
 			this.getIp()
 		},
+		
 		methods: {
 			getIp() {
 				fetch(`https://api.ipify.org/?format=json`)
@@ -122,6 +136,7 @@
 				})
 				.then(res => res.json())
 				.then(res => {
+					// console.log(res)
 					setTimeout(() => {
 						this.loading=false
 						this.show.button=false
@@ -129,7 +144,8 @@
 						this.show.weather=true
 						this.result=res
 						this.city=res.city
-						this.map=`https://maps.google.com/maps?q=${this.result.city}&t=&z=13&ie=UTF8&iwloc=&output=embed`
+						// this.map=`https://maps.google.com/maps?q=${this.result.city}&t=&z=13&ie=UTF8&iwloc=&output=embed`
+						this.map=`https://www.openstreetmap.org/#map=12/${this.result.latitude}/${this.result.longitude}`
 					}, 2500)
 				})
 				.catch(err => console.log(err))
