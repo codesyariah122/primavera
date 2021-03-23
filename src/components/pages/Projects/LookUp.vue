@@ -28,7 +28,7 @@
 									{{result.ip}}
 								</b-list-group-item>
 								<b-list-group-item>
-									{{result.country_name}}
+									{{result.country_name}} | <img :src="`https://www.countryflags.io/${result.country_code}/shiny/64.png`" class="img-responsive circle"/>
 								</b-list-group-item>
 								<b-list-group-item>
 									{{result.country_population}}
@@ -105,7 +105,7 @@
 		created(){
 			this.getIp()
 		},
-		
+
 		methods: {
 			getIp() {
 				fetch(`https://api.ipify.org/?format=json`)
