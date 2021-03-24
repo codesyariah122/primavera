@@ -32,6 +32,7 @@
 
 <script>
   export default {
+    name: "Home",
     metaInfo: {
       title: "AboutPage | Primavera"
     }
