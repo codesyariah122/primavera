@@ -21,14 +21,13 @@
 
 						<b-card v-if="show.card" class="mt-3 mb-5">
 							<b-list-group  flush style="font-size:12px;">
+								<b-list-group-item><img :src="`https://www.countryflags.io/${result.country_code}/shiny/64.png`" class="img-responsive circle"/>
+								</b-list-group-item>
 								<b-list-group-item>
 									{{result.org}}
 								</b-list-group-item>
 								<b-list-group-item>
 									{{result.ip}}
-								</b-list-group-item>
-								<b-list-group-item>
-									{{result.country_name}} | <img :src="`https://www.countryflags.io/${result.country_code}/shiny/64.png`" class="img-responsive circle"/>
 								</b-list-group-item>
 								<b-list-group-item>
 									{{result.country_population}}
@@ -110,10 +109,8 @@
 			getIp() {
 				fetch(`https://api.ipify.org/?format=json`)
 				.finally(() => {
-					setTimeout(() => {
-						this.loading=true
-						this.show.button=false
-					}, 500)
+					this.loading=true
+					this.show.button=false
 				})
 				.then(res => res.json())
 				.then(res => {

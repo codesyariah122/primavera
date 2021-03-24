@@ -170,7 +170,7 @@
 
 <style lang="scss" scoped>
 .wrap{
-	margin-left:-1.5rem;
+	margin-left:-5.5rem;
 		svg{
 			width: "360.000000pt"; 
 			height: "360.000000pt";

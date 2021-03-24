@@ -53,7 +53,7 @@
   margin: auto;
   position: relative;
   margin-bottom: 2rem;
-  margin-top: 0.8rem;
+  margin-top: 10rem;
   width: 100px;
   height: 2px;
   background: #ff634e;
