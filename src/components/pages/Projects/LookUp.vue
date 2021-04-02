@@ -7,7 +7,7 @@
 					<div class="col-12 mb-5">
 						<h5 v-if="show.button"> {{title}} </h5>
 
-						<img v-if="loading" :src="animate" :title="ip" width="250" height="150" class="img-responsive mt-3">
+						<img v-if="loading" :src="animate" :title="ip" width="250" height="150" class="img-responsive mt-5">
 						
 						<button v-if="show.button" class="btn btn-primary" @click="getLocation(ip)">Check Temperature</button>
 
@@ -45,19 +45,16 @@
 						</b-card>
 					</div>
 
-					<div class="col-md-4 col-xs-4 col-sm-6 mt-5 mb-5">	
+					<div class="col-md-4 col-xs-4 col-sm-6 mt-5 mb-5">
 						<div v-if="map">
-	                        <div class="mapouter">
-	                            <div class="gmap_canvas">
-	                                <!-- <iframe width="600" height="300" id="gmap_canvas" :src="map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-	                                </iframe> -->
-	                                <iframe width="500" height="400" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=107.24544525146484%2C-7.040586689891008%2C107.62859344482422%2C-6.844623671722899&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a :href="map">View Larger Map</a></small>
-	                            </div>
-	                        </div>
-							
-							<!-- <Chart style="margin-left: 5rem; margin-top:-.1rem;" :code="result.country_code" :city="result.city" /> -->
+							<div class="embed-responsive embed-responsive-16by9">	
+								
+								<iframe width="800" height="400" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=107.24544525146484%2C-7.040586689891008%2C107.62859344482422%2C-6.844623671722899&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a :href="map">View Larger Map</a></small>
 
-                    	</div>
+								<!-- <Chart style="margin-left: 5rem; margin-top:-.1rem;" :code="result.country_code" :city="result.city" /> -->
+
+							</div>
+	                	</div>
 					</div>
 				</b-row>
 <!-- 
@@ -157,31 +154,13 @@
 		h5{
 			margin-top: 5rem;
 		}
-		.gmap_canvas {
-			overflow:hidden;
-			background:none!important;
-			height:300px;width:600px;
-		}
-		.mapouter{
-			position:relative;
-			text-align:right;
-			height:300px;
-			width:600px;
-		}
 
 		@media only screen and (max-width: 600px) {
 			margin-left: 3rem;
 			h5{
 				margin-top: 7rem;
 			}
-			.gmap_canvas{
-				height:200px;
-				width: 270px;
-			}
-			.mapouter{
-				height: 200px;
-				width: 270px;
-			}
+			
 		} 
 	}
 </style>

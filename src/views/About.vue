@@ -5,24 +5,7 @@
       <b-container>
         <b-row class="justify-content-center">
           <div class="col-12">
-            <h1>Innovation ... why ? </h1>
-            <img src="../assets/About/mood.jpg" alt="">
-            <p>
-              Entah mengapa orang-orang begitu berhasrat menetaskan pembaharuan, apa yang mereka inginkan dari pembaharuan yang mereka ciptakan :  
-              <details>
-              <summary>
-                Click
-              </summary>
-                <ul>
-                  <li>Omong kosong</li>
-                  <li>Kebohongan</li>
-                  <li>Kelicikan</li>
-                </ul>
-                Yang mana yang engkau persembahkan ... ?
-              </details>
-
-              Tapi dari setiap pilihan mungkin ada sisi baiknya, manakala hati manusia masih terbuka sebagai fitrahnya. Bukan sebuah alasan juga untuk tidak berkarya dan mengejar innovasi toh, ada baiknya semua perencanaan itu di rencanakan untuk kebaikan.
-            </p>
+            <AboutPage title="AboutPage"/>
           </div>
         </b-row>
       </b-container>
@@ -31,10 +14,14 @@
 </template>
 
 <script>
+  import AboutPage from '../components/pages/About/AboutPage.vue'
   export default {
     name: "Home",
     metaInfo: {
       title: "AboutPage | Primavera"
+    },
+    components: {
+      AboutPage
     }
   }
 </script>
